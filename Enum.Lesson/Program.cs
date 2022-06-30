@@ -8,11 +8,18 @@ namespace Enum.Lesson
     {
         static void Main(string[] args)
         {
+
+            const String path = @"C:\banks"; 
+
             Console.WriteLine(Exchange.BTC);
             Console.WriteLine(Transaction.CRYPTO);
-            Bank unicredit = new Bank("Unicredit");
+            Bank Unicredit = new Bank("Unicredit", path);
+            Bank IngDirect = new Bank("IngDirect", path);
+
+
             Cliente bruno = new Cliente("Bruno",40,"FRRMFK884NNFN");
-            unicredit.AddNewClient(bruno);
+            Unicredit.AddNewClient(bruno);
+            IngDirect.AddNewClient(bruno);
 
         }
     } 
@@ -61,12 +68,13 @@ namespace Enum.Lesson
     public class Bank
     {
         List<Cliente>  _clienti = new List<Cliente>();
-        const string _path = @"C:\Banks\";
+        string _path;
         public string _name;
 
-        public Bank(string Name)
+        public Bank(string Name, string path)
         {
             _name = Name;
+            _path = path;
             CreateFolder(Path.Combine(_path,_name));
         }
         public string Withdraw(Cliente cliente,decimal Amount, Transaction transactionType)
