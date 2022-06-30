@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Enum.Lesson
 {
@@ -8,8 +10,11 @@ namespace Enum.Lesson
         {
             Console.WriteLine(Exchange.BTC);
             Console.WriteLine(Transaction.CRYPTO);
+            Bank unicredit = new Bank("Unicredit");
             Cliente bruno = new Cliente("Bruno",40,"FRRMFK884NNFN");
-        }       
+            unicredit.AddNewClient(bruno);
+
+        }
     } 
     
     public enum Transaction // label 
@@ -55,7 +60,16 @@ namespace Enum.Lesson
     } 
     public class Bank
     {
-        public static string Withdraw(Cliente cliente,decimal Amount, Transaction transactionType)
+        List<Cliente>  _clienti = new List<Cliente>();
+        const string _path = @"C:\Banks\";
+        public string _name;
+
+        public Bank(string Name)
+        {
+            _name = Name;
+            CreateFolder(Path.Combine(_path,_name));
+        }
+        public string Withdraw(Cliente cliente,decimal Amount, Transaction transactionType)
         {
             switch (transactionType)
             {
@@ -77,15 +91,24 @@ namespace Enum.Lesson
 
             return "Prelievo Success!: " + 0.0M;
         }
-        public static void Deposit(Cliente cliente, decimal Amount, Transaction transactionType)
+        public void Deposit(Cliente cliente, decimal Amount, Transaction transactionType)
         {
         }
-        public static void ScriveLog(Cliente cliente, string OperationType, decimal Amount, Transaction transactionType)
+        public void ScriveLog(Cliente cliente, string OperationType, decimal Amount, Transaction transactionType)
         {
             /// cliente._cd --> Nome della Folder
             /// Vai nella subfolder con nome uguale a transactionType --> [FIAT, CRYPTO]
             /// Vai la riga della transazione. ---> [Data,CF,OperationType,Amount] 
             DateTime.Now.ToString(); 
+        } 
+        public void AddNewClient(Cliente cliente)
+        {
+            _clienti.Add(cliente);
+            CreateFolder(cliente._cd);
+        }
+        static void CreateFolder(string FolderName)
+        {   
+            /// Crezion delle folder Cliente  -> Path + NomeBanca  + CF 
         }
     }
 }
