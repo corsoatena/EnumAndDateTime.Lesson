@@ -9,24 +9,18 @@ namespace Enum.Lesson
             Console.WriteLine(Exchange.BTC);
             Console.WriteLine(Transaction.CRYPTO);
             Cliente bruno = new Cliente("Bruno",40,"FRRMFK884NNFN");
-            Console.WriteLine(bruno._saldo.Client._name); 
-
-
-
-        }
-       
+        }       
     } 
     
     public enum Transaction // label 
     {
-        SEPA,
+        FIAT,
         CRYPTO
     }
 
     public struct Exchange
     {
-        public static decimal BTC = 19000.89M; 
-        public static decimal ETH = 1100.00M;
+        public static decimal BTC = 19250.00M;
     }
     public class Cliente
     {
@@ -43,11 +37,11 @@ namespace Enum.Lesson
             _saldo = new Saldo(this); 
         }
     }
-    public struct Saldo
+    public class Saldo 
     {
           public Cliente Client;
-          public static decimal EURO = 1000.00M;
-          public static decimal BTC = 1000.00M;
+          public decimal EURO = 0.00M;
+          public decimal BTC = 0.00M;          
 
         public Saldo(Cliente _cliente)
         {
@@ -59,14 +53,39 @@ namespace Enum.Lesson
             return Client._name;
         }
     } 
-    public class BankAccount
+    public class Bank
     {
-        public static void Withdraw( decimal Amount)
-        {           
-            ///Preleva solo se hai abbastanza soldi! 
-            ///altrimenti avvisa il cliente 
+        public static string Withdraw(Cliente cliente,decimal Amount, Transaction transactionType)
+        {
+            switch (transactionType)
+            {
+                case Transaction.FIAT: 
+                     /// Fa a fare il solito check su saldo FIAT
+                     /// se è ok, preleva!
+                     /// altriementi ->> errore!
+                     /// Va a scrivere la transazione FIAT nel suo FILE 
+                    break;
+                case Transaction.CRYPTO:
+                    /// Fa a fare il solito check su saldo CRYPTO
+                    /// se è ok, preleva!
+                    /// altriementi ->> errore!
+                    ///  /// Va a scrivere la transazione CRYPTO nel suo FILE 
+                    break;
+                default:
+                    break;
+            }
+
+            return "Prelievo Success!: " + 0.0M;
+        }
+        public static void Deposit(Cliente cliente, decimal Amount, Transaction transactionType)
+        {
+        }
+        public static void ScriveLog(Cliente cliente, string OperationType, decimal Amount, Transaction transactionType)
+        {
+            /// cliente._cd --> Nome della Folder
+            /// Vai nella subfolder con nome uguale a transactionType --> [FIAT, CRYPTO]
+            /// Vai la riga della transazione. ---> [Data,CF,OperationType,Amount] 
+            DateTime.Now.ToString(); 
         }
     }
-
-
 }
