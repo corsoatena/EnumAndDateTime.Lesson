@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum.Lesson", "Enum.Lesson\Enum.Lesson.csproj", "{700BE4B8-5D6C-4260-B3B9-432642C8AE24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeManagement.Lesson", "DateTimeManagement.Lesson\DateTimeManagement.Lesson.csproj", "{CDEE2672-8F3B-4760-BE12-C265B294D88F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{700BE4B8-5D6C-4260-B3B9-432642C8AE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700BE4B8-5D6C-4260-B3B9-432642C8AE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{700BE4B8-5D6C-4260-B3B9-432642C8AE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{700BE4B8-5D6C-4260-B3B9-432642C8AE24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDEE2672-8F3B-4760-BE12-C265B294D88F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDEE2672-8F3B-4760-BE12-C265B294D88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDEE2672-8F3B-4760-BE12-C265B294D88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDEE2672-8F3B-4760-BE12-C265B294D88F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8659ECC3-670E-4717-804C-5AEF6D1FF914}
+	EndGlobalSection
+EndGlobal
